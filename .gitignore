@@ -1,0 +1,5 @@
+node_modules/
+src/web_interface/out
+.dfx/
+canister_ids.json
+src/declarations

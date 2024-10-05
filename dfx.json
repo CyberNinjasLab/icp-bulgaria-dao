@@ -1,0 +1,27 @@
+{
+  "canisters": {
+    "web_interface": {
+      "frontend": {
+        "entrypoint": "src/web_interface/out/index.html"
+      },
+      "type": "assets",
+      "source": ["src/web_interface/out"]
+    },
+    "proposals" : {
+      "type": "motoko",
+      "main": "src/dao/proposals.mo"
+    },
+    "internet_identity": {
+      "candid": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity.did",
+      "frontend": {},
+      "remote": {
+        "id": {
+          "ic": "rdmx6-jaaaa-aaaaa-aaadq-cai"
+        }
+      },
+      "type": "custom",
+      "wasm": "https://github.com/dfinity/internet-identity/releases/latest/download/internet_identity_dev.wasm.gz"
+    }
+  },
+  "dfx": "0.23.0"
+}
