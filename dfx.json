@@ -5,7 +5,8 @@
         "entrypoint": "src/web_interface/out/index.html"
       },
       "type": "assets",
-      "source": ["src/web_interface/out"]
+      "source": ["src/web_interface/out"],
+      "build": ["cd src/web_interface && npm run build"]
     },
     "proposals" : {
       "type": "motoko",
