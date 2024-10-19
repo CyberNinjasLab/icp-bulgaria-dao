@@ -4,3 +4,4 @@ src/web_interface/out
 canister_ids.json
 src/declarations
 .DS_Store
+.env
