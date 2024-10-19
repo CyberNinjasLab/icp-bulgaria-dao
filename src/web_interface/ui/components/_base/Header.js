@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <>
       <header>
-        <h1 className="text-xl font-semibold py-3">Гласувайте за заглавие</h1>
+        <h1 className="text-xl font-semibold py-3">ICP Bulgaria 🇧🇬</h1>
       </header>
 
       <nav className="flex justify-center items-center relative">
