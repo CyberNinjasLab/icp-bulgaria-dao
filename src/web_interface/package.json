@@ -8,6 +8,11 @@
   "dependencies": {
     "@dfinity/agent": "^2.1.2",
     "@dfinity/auth-client": "^2.1.2",
+    "@dfinity/candid": "^2.1.2",
+    "@dfinity/ledger-icp": "^2.6.1",
+    "@dfinity/ledger-icrc": "^2.6.1",
+    "@dfinity/principal": "^2.1.2",
+    "@dfinity/utils": "^2.5.2",
     "@emotion/cache": "^11.13.1",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
@@ -16,8 +21,10 @@
     "date-fns": "^4.1.0",
     "js-cookie": "^3.0.5",
     "next": "latest",
+    "qrcode.react": "^4.0.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-qr-code": "^2.0.15"
   },
   "engines": {
     "node": ">=18"

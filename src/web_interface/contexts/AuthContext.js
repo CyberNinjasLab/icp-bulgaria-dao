@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import LoginModal from "../ui/components/_base/LoginModal";
 import ThemeRegistry from "../utils/ThemeRegistry";
 import { useRouter } from 'next/router';
+import { AccountIdentifier } from "@dfinity/ledger-icp";
 
 // Create the AuthContext
 const AuthContext = createContext();
@@ -12,28 +13,12 @@ const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [authClient, setAuthClient] = useState(null);
   const [user, setUser] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
   const [identity, setIdentity] = useState(null);
   const [proposalsActor, setProposalsActor] = useState(null);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const sessionDurationInDays = 30;
   const router = useRouter();
-
-  // Using js-cookie for cookie storage
-  const cookieStorage = {
-    get(key) {
-      const cookieValue = Cookies.get(key);
-      return Promise.resolve(cookieValue ? cookieValue : null);
-    },
-    set(key, value) {
-      Cookies.set(key, value, { expires: sessionDurationInDays, secure: true, sameSite: 'Strict' });
-      return Promise.resolve();
-    },
-    remove(key) {
-      Cookies.remove(key, { secure: true, sameSite: 'Strict' });
-      return Promise.resolve();
-    }
-  };
 
   // Initialize the authentication client and check authentication state
   const initAuth = async () => {
@@ -83,9 +68,13 @@ export const AuthProvider = ({ children }) => {
     );
 
     const userPrincipal = await proposalsActor.whoami();
+    const userAccountIdentifier = AccountIdentifier.fromPrincipal({
+      principal: userPrincipal
+    });
 
     setUser({
-      principal: userPrincipal
+      principal: userPrincipal,
+      account: userAccountIdentifier
     });
 
     setProposalsActor(proposalsActor);

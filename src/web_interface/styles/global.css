@@ -3,3 +3,9 @@
 @tailwind utilities;
 
 @import './raw.css';
+
+@layer components {
+  .blur-effect {
+    @apply bg-gray-200/40 rounded animate-pulse
+  }
+}

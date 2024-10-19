@@ -5,6 +5,7 @@ const GeneralContext = createContext();
 
 // Create a provider component
 export const GeneralProvider = ({ children }) => {
+
   // Function to format nanosecond timestamp to readable date
   function formatTimestampToReadableDate(nanoseconds) {
     const nanosecondsBigInt = BigInt(nanoseconds);
@@ -49,8 +50,41 @@ export const GeneralProvider = ({ children }) => {
     }
   };
 
+  // Copy the principal to clipboard
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text);
+  };
+
+  const cutAddr = (id) => {
+    if (id.length > 12) {
+      return `${id.slice(0, 11)}...${id.slice(-9)}`;
+    }
+    return id; // If the ID is too short to format, return it as is.
+  };
+
+  const formatWithDecimals = (balance, decimals) => {
+    const divisor = BigInt(10) ** BigInt(decimals);
+    const integerPart = balance / divisor;
+    const fractionalPart = balance % divisor;
+    const integerString = integerPart.toLocaleString();
+
+    let fractionalString = fractionalPart.toString().padStart(Number(decimals), '0');
+    
+    // Remove unnecessary trailing zeros from fractional part
+    fractionalString = fractionalString.replace(/0+$/, '');
+  
+    // If the fractional part becomes empty (i.e., it's all zeros), just return the integer part
+    return fractionalString ? `${integerString}.${fractionalString}` : integerString;
+  };
+
   return (
-    <GeneralContext.Provider value={{ formatTimestampToReadableDate, calculateTimeLeft }}>
+    <GeneralContext.Provider value={{ 
+      formatTimestampToReadableDate, 
+      calculateTimeLeft,
+      copyToClipboard,
+      cutAddr,
+      formatWithDecimals
+    }}>
       {children}
     </GeneralContext.Provider>
   );

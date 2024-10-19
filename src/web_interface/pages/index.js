@@ -57,9 +57,7 @@ export default function Home() {
             </div>
             {/* Logout */}
             <div>
-              <Button variant="outlined" onClick={logout}>
-                Изход
-              </Button>
+              
             </div>
             <hr />
             {/* Proposals */}
