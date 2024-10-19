@@ -1,5 +1,7 @@
 node_modules/
 src/web_interface/out
+src/web_interface/.env*
+!src/web_interface/.env.example
 .dfx/
 canister_ids.json
 src/declarations
