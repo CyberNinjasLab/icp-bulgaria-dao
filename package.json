@@ -1,0 +1,14 @@
+{
+  "name": "icp-bulgaria-dao",
+  "version": "1.0.0",
+  "description": "Добре дошли в проекта **ICP Bulgaria**! Ние сме общност, обединена около Internet Computer (ICP) технологията. Нашата цел е да експериментираме и изградим DAO (децентрализирана автономна организация) приложение, което да позволява гласуване и автономно управление на социални цели. Чрез използването на ICP, хостваме нашето приложение и смарт контракти (Canisters), за да създадем напълно децентрализирано и прозрачно решение.",
+  "main": "dfx.webpack.config.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cd src/web_interface && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

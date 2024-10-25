@@ -6,7 +6,7 @@
       },
       "type": "assets",
       "source": ["src/web_interface/out"],
-      "build": ["cd src/web_interface && npm run build"]
+      "build": ["dfx generate && cd src/web_interface && npm run build"]
     },
     "proposals" : {
       "type": "motoko",
